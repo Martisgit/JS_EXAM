@@ -104,6 +104,13 @@ h2 {
   font-size: 1.1rem;
 }
 
+.error-message {
+  color: red;
+  display: none;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   .header-wrapper {
     justify-content: space-between;

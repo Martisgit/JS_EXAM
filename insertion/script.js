@@ -1,8 +1,14 @@
+import { createItem } from "../utils/fetch.js";
+import { validateForm } from "../utils/validation.js";
 const form = document.getElementById("item-form");
 const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  errorMessage.style.display = "none";
+  successMessage.style.display = "none";
 
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
@@ -18,23 +24,15 @@ form.addEventListener("submit", (event) => {
     item_img: item_img,
   };
 
-  fetch("https://66fbadcd8583ac93b40cb524.mockapi.io/store", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(item),
-  });
-  // .then((response) => response.json())
-  // .then((data) => {
-  //   console.log("Success:", data);
-  // })
-  // .catch((error) => {
-  //   console.error("Error:", error);
-  // });
+  const error = validateForm(item);
+  if (error) {
+    errorMessage.innerText = error;
+    errorMessage.style.display = "block";
+    return;
+  }
 
+  await createItem(item);
   successMessage.style.display = "block";
-
   setTimeout(() => {
     window.location.href = "../index.html";
   }, 3000);
