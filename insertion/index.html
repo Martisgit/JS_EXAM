@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Item</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <h1 class="top">Neskelbiu</h1>
+      <a class="listings" href="../index.html">Back to Listings</a>
+    </div>
+    <div class="form-container">
+      <h2>Submit a New Item</h2>
+      <form id="item-form">
+        <!-- Name of Item Field -->
+        <div class="form-group">
+          <label for="name">Name of item:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter the item name"
+            required
+          />
+        </div>
+
+        <!-- Price Field -->
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            placeholder="Enter the item price"
+            required
+          />
+        </div>
+
+        <!-- Item Image Field -->
+        <div class="form-group">
+          <label for="item_img">Item Image URL:</label>
+          <input
+            type="url"
+            id="item_img"
+            name="item_img"
+            placeholder="Enter the image URL"
+            required
+          />
+        </div>
+
+        <!-- Description Field -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            placeholder="Enter a short description of the item"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Location Field -->
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Enter the location of the item"
+            required
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <input type="submit" value="Submit Item" />
+        </div>
+      </form>
+      <div id="success-message" class="success-message">
+        Form accepted! Redirecting...
+      </div>
+    </div>
+    <div id="card-wrapper"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
